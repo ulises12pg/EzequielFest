@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Fondo circular con borde dorado festivo -->
+  <circle cx="32" cy="32" r="30" fill="#0f1b3d" stroke="#fbbf24" stroke-width="2.5"/>
+  <circle cx="32" cy="32" r="27.5" fill="none" stroke="#dc2626" stroke-width="1" stroke-dasharray="2 2"/>
+
+  <!-- Sombrilla / Corona del trompo (madera) -->
+  <line x1="32" y1="8" x2="32" y2="18" stroke="#a0522d" stroke-width="3" stroke-linecap="round"/>
+  <ellipse cx="32" cy="18" rx="3" ry="1.5" fill="#d27d2d"/>
+
+  <!-- Cuerpo del Trompo Mexicano multicolor -->
+  <!-- Casquete superior rojo -->
+  <ellipse cx="32" cy="20" rx="17" ry="6" fill="#dc2626"/>
+  
+  <!-- Cuerpo cónico con franjas de sarape mexicano -->
+  <path d="M15,20 Q15,32 24,44 L32,54 L40,44 Q49,32 49,20 Z" fill="#f97316"/>
+  
+  <!-- Franja Naranja / Amarilla -->
+  <path d="M17,24 Q24,30 32,30 Q40,30 47,24 L45,29 Q39,35 32,35 Q25,35 19,29 Z" fill="#fbbf24"/>
+  
+  <!-- Franja Verde Esmeralda -->
+  <path d="M20,30 Q26,36 32,36 Q38,36 44,30 L42,35 Q37,40 32,40 Q27,40 22,35 Z" fill="#16a34a"/>
+  
+  <!-- Franja Turquesa Mexicana -->
+  <path d="M23,36 Q27,41 32,41 Q37,41 41,36 L39,41 Q35,45 32,45 Q29,45 25,41 Z" fill="#06b6d4"/>
+  
+  <!-- Franja Morada / Fucsia -->
+  <path d="M26,42 Q29,46 32,46 Q35,46 38,42 L36,46 Q34,49 32,49 Q30,49 28,46 Z" fill="#ec4899"/>
+  
+  <!-- Punta metálica del trompo -->
+  <polygon points="30,52 34,52 32,57" fill="#e2e8f0"/>
+  <circle cx="32" cy="57" r="1.2" fill="#94a3b8"/>
+
+  <!-- Destello / Brillo lateral para efecto tridimensional -->
+  <path d="M18,22 Q20,30 25,38" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.8" stroke-linecap="round"/>
+
+  <!-- Canicas decorativas a los lados -->
+  <!-- Canica izquierda roja -->
+  <circle cx="9" cy="38" r="4.5" fill="#dc2626" stroke="#fbbf24" stroke-width="0.8"/>
+  <circle cx="7.5" cy="36.5" r="1.2" fill="rgba(255,255,255,0.8)"/>
+
+  <!-- Canica derecha turquesa -->
+  <circle cx="55" cy="38" r="4.5" fill="#06b6d4" stroke="#fbbf24" stroke-width="0.8"/>
+  <circle cx="53.5" cy="36.5" r="1.2" fill="rgba(255,255,255,0.8)"/>
+</svg>
