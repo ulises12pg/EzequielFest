@@ -51,8 +51,8 @@ const EVENT_CONFIG = {
 
   // Música de Fondo
   musica: {
-    archivo: "assets/miviejo.mp3",
-    titulo: "Mi Viejo"
+    archivo: "assets/lameta.mp3",
+    titulo: "La Meta"
   }
 };
 
