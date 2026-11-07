@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>80 Años de Ezequiel Maturano | Invitación de Honor</title>
+
+  <!-- OpenGraph / Metadatos para compartir en WhatsApp -->
+  <meta property="og:title" content="80 Años - Ezequiel Maturano">
+  <meta property="og:description" content="Acompáñanos a celebrar ocho décadas de vida, dicha y bendiciones en nuestro gran festejo tradicional. Sábado 19 de Diciembre.">
+  <meta property="og:image" content="assets/img/centro-de-mesa.jpg">
+  <meta name="theme-color" content="#0c2756">
+
+  <!-- Fuentes de Google: Talavera y Elegancia Colonial -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@500;700;900&family=Great+Vibes&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Estilos Principales -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Fondo con textura sutil estilo azulejo / Talavera -->
+  <div class="talavera-bg-overlay"></div>
+
+  <!-- Listón superior estilo Sarape Mexicano -->
+  <div class="serape-stripe"></div>
+
+  <!-- Botones de Acción Flotantes (Música y Confeti) -->
+  <div class="floating-actions">
+    <button id="btn-music" class="fab-btn" title="Música de ambiente" aria-label="Reproducir música">
+      <i class="fa-solid fa-music"></i>
+    </button>
+    <button id="btn-confetti" class="fab-btn" title="Lanzar ¡Viva la fiesta!" aria-label="Celebrar">
+      <i class="fa-solid fa-champagne-glasses"></i>
+    </button>
+  </div>
+
+  <!-- Contenedor Principal de la Invitación -->
+  <main class="invitation-container">
+
+    <!-- ==================== HERO / ENCABEZADO ==================== -->
+    <header class="hero-card">
+      <!-- Esquinas ornamentales estilo Talavera / Forja colonial -->
+      <svg class="corner-ornament corner-tl" viewBox="0 0 100 100" fill="none" stroke="#d4af37" stroke-width="3">
+        <path d="M5,95 L5,5 Q5,5 95,5 M15,95 L15,15 Q15,15 95,15 M30,5 Q30,30 5,30 M5,5 L40,40" />
+        <circle cx="20" cy="20" r="5" fill="#d4af37"/>
+      </svg>
+      <svg class="corner-ornament corner-tr" viewBox="0 0 100 100" fill="none" stroke="#d4af37" stroke-width="3">
+        <path d="M5,95 L5,5 Q5,5 95,5 M15,95 L15,15 Q15,15 95,15 M30,5 Q30,30 5,30 M5,5 L40,40" />
+        <circle cx="20" cy="20" r="5" fill="#d4af37"/>
+      </svg>
+      <svg class="corner-ornament corner-bl" viewBox="0 0 100 100" fill="none" stroke="#d4af37" stroke-width="3">
+        <path d="M5,95 L5,5 Q5,5 95,5 M15,95 L15,15 Q15,15 95,15 M30,5 Q30,30 5,30 M5,5 L40,40" />
+        <circle cx="20" cy="20" r="5" fill="#d4af37"/>
+      </svg>
+      <svg class="corner-ornament corner-br" viewBox="0 0 100 100" fill="none" stroke="#d4af37" stroke-width="3">
+        <path d="M5,95 L5,5 Q5,5 95,5 M15,95 L15,15 Q15,15 95,15 M30,5 Q30,30 5,30 M5,5 L40,40" />
+        <circle cx="20" cy="20" r="5" fill="#d4af37"/>
+      </svg>
+
+      <div class="pre-badge">
+        <i class="fa-solid fa-star"></i> Gran Festejo de Honor <i class="fa-solid fa-star"></i>
+      </div>
+
+      <!-- Medallón 80 Años -->
+      <div class="badge-80">
+        <span class="badge-number dyn-edad">80</span>
+        <span class="badge-sub">Años</span>
+      </div>
+
+      <p class="hero-title-greeting">Acompáñanos a celebrar a</p>
+      <h1 class="hero-name dyn-festejado">Ezequiel Maturano</h1>
+
+      <div class="gold-divider">
+        <div class="line"></div>
+        <i class="fa-solid fa-sun icon"></i>
+        <div class="line"></div>
+      </div>
+
+      <p class="hero-quote">
+        “Doy gracias a la vida por ocho décadas de bendiciones, amor de familia y entrañables amistades. Tu presencia será mi mejor regalo.”
+      </p>
+
+      <div class="hero-date-highlight">
+        <div class="date-day dyn-fecha">Sábado, 19 de Diciembre</div>
+        <div class="date-sub">Una fiesta para recordar siempre</div>
+      </div>
+    </header>
+
+    <!-- ==================== FOTO / AMBIENTACIÓN ==================== -->
+    <section class="photo-frame-wrapper">
+      <img src="assets/img/centro-de-mesa.jpg" alt="Decoración de fiesta mexicana con Talavera y flores" class="decor-image">
+      <div class="photo-caption">
+        <p>Una fiesta con el corazón de México</p>
+        <span>Talavera • Flores • Tradición • Alegría</span>
+      </div>
+    </section>
+
+    <!-- ==================== CUENTA REGRESIVA ==================== -->
+    <section class="countdown-section">
+      <div class="section-label">
+        <i class="fa-solid fa-hourglass-half"></i> Faltan muy pocos días
+      </div>
+      <h2 id="countdown-heading" class="section-title">Cuenta Regresiva</h2>
+
+      <div class="countdown-grid">
+        <div class="countdown-box">
+          <span id="count-days" class="countdown-number">00</span>
+          <span class="countdown-text">Días</span>
+        </div>
+        <div class="countdown-box">
+          <span id="count-hours" class="countdown-number">00</span>
+          <span class="countdown-text">Horas</span>
+        </div>
+        <div class="countdown-box">
+          <span id="count-minutes" class="countdown-number">00</span>
+          <span class="countdown-text">Minutos</span>
+        </div>
+        <div class="countdown-box">
+          <span id="count-seconds" class="countdown-number">00</span>
+          <span class="countdown-text">Segundos</span>
+        </div>
+      </div>
+
+      <div style="margin-top: 20px;">
+        <button onclick="downloadICS()" class="btn-outline">
+          <i class="fa-regular fa-calendar-plus"></i> Agendar en mi Calendario
+        </button>
+      </div>
+    </section>
+
+    <!-- ==================== ITINERARIO Y UBICACIONES ==================== -->
+    <section class="events-section">
+
+      <!-- Evento 1: Misa -->
+      <article class="event-card">
+        <div class="event-header">
+          <div class="event-icon-circle">
+            <i class="fa-solid fa-church"></i>
+          </div>
+          <div class="event-title-group">
+            <h3>Misa de Acción de Gracias</h3>
+            <span class="event-time-badge">
+              <i class="fa-regular fa-clock"></i> <span class="dyn-misa-hora">1:00 PM</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="event-body">
+          <div class="event-venue-name dyn-misa-lugar">Convento de las Hermanas Agustinas</div>
+          <p class="event-address dyn-misa-dir">C. Sabino 802, Huerto Nantzha, 42800 Tula de Allende, Hgo.</p>
+          
+          <div class="btn-action-group">
+            <a id="btn-maps-misa" href="https://maps.app.goo.gl/wixcihzfQL3ETNLC9?g_st=iw" target="_blank" rel="noopener noreferrer" class="btn-gold">
+              <i class="fa-solid fa-location-dot"></i> Ver en Google Maps
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Evento 2: Recepción -->
+      <article class="event-card">
+        <div class="event-header">
+          <div class="event-icon-circle">
+            <i class="fa-solid fa-champagne-glasses"></i>
+          </div>
+          <div class="event-title-group">
+            <h3>Recepción & Festejo</h3>
+            <span class="event-time-badge">
+              <i class="fa-regular fa-clock"></i> <span class="dyn-recepcion-hora">3:00 PM</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="event-body">
+          <div class="event-venue-name dyn-recepcion-lugar">Salón / Hacienda de Eventos</div>
+          <p class="event-address dyn-recepcion-dir">Ubicación pendiente por confirmar en Google Maps</p>
+          
+          <div class="btn-action-group">
+            <a id="btn-maps-recepcion" href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn-gold">
+              <i class="fa-solid fa-map-location-dot"></i> Ver en Google Maps
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- ==================== CONFIRMACIÓN POR WHATSAPP (RSVP) ==================== -->
+    <section class="rsvp-section">
+      <div class="rsvp-badge">
+        <i class="fa-brands fa-whatsapp"></i> Confirmación de Asistencia
+      </div>
+      <h2 class="section-title">¿Nos acompañas?</h2>
+      <p style="color: #cbd5e1; font-size: 0.95rem; max-width: 440px; margin: 0 auto;">
+        Tu presencia es muy valiosa para nosotros. Por favor confirma tu asistencia antes del 10 de Diciembre.
+      </p>
+
+      <form id="rsvp-form" class="rsvp-form">
+        <div class="form-group">
+          <label for="rsvp-name"><i class="fa-solid fa-user"></i> Tu Nombre Completo:</label>
+          <input type="text" id="rsvp-name" class="form-control" placeholder="Ej. Familia Rodríguez / Juan Pérez" required>
+        </div>
+
+        <div class="form-group">
+          <label for="rsvp-guests"><i class="fa-solid fa-users"></i> Número de Asistentes:</label>
+          <select id="rsvp-guests" class="form-control form-select">
+            <option value="1 persona">1 Persona (Solo yo)</option>
+            <option value="2 personas" selected>2 Personas</option>
+            <option value="3 personas">3 Personas</option>
+            <option value="4 personas">4 Personas</option>
+            <option value="5 o más personas">5 o más Personas (Familia)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="rsvp-attending"><i class="fa-solid fa-calendar-check"></i> Asistiremos a:</label>
+          <select id="rsvp-attending" class="form-control form-select">
+            <option value="Misa y Recepción" selected>Misa (1:00 PM) y Recepción (3:00 PM)</option>
+            <option value="Solo a la Recepción">Solo a la Recepción (3:00 PM)</option>
+            <option value="Solo a la Misa">Solo a la Misa (1:00 PM)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="rsvp-message"><i class="fa-solid fa-envelope-open-text"></i> Dedicatoria para Don Ezequiel (Opcional):</label>
+          <textarea id="rsvp-message" class="form-control" rows="2" placeholder="Escribe un mensaje o felicitación..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-whatsapp">
+          <i class="fa-brands fa-whatsapp fa-lg"></i> Confirmar Asistencia por WhatsApp
+        </button>
+      </form>
+    </section>
+
+    <!-- ==================== CÓDIGO QR / GOOGLE DRIVE (ÁLBUM) ==================== -->
+    <section class="drive-section">
+      <div class="section-label">
+        <i class="fa-solid fa-camera-retro"></i> Álbum Colaborativo
+      </div>
+      <h2 class="section-title">Comparte tus Fotos del Festejo</h2>
+      <p class="drive-hint">
+        ¡Ayúdanos a guardar este día inolvidable! Escanea este código QR con tu celular durante o después de la fiesta para subir tus fotos a la carpeta compartida de Google Drive.
+      </p>
+
+      <!-- Espacio Destacado del QR -->
+      <div class="qr-card-container">
+        <div id="qrcode"></div>
+      </div>
+
+      <div style="margin-top: 14px;">
+        <a id="btn-open-drive" href="https://drive.google.com" target="_blank" rel="noopener noreferrer" class="btn-outline">
+          <i class="fa-brands fa-google-drive"></i> Abrir Carpeta de Google Drive
+        </a>
+      </div>
+    </section>
+
+    <!-- ==================== DETALLES ADICIONALES ==================== -->
+    <section class="extra-details-grid">
+      <!-- Vestimenta -->
+      <div class="detail-card">
+        <div class="detail-icon">
+          <i class="fa-solid fa-vest"></i>
+        </div>
+        <h4>Código de Vestimenta</h4>
+        <p><strong class="dyn-vestimenta-tipo">Formal Mexicano / Guayabera o Traje</strong></p>
+        <p class="dyn-vestimenta-desc" style="margin-top: 4px; font-size: 0.8rem; color: #94a3b8;">
+          Toques mexicanos elegantes, guayaberas, trajes o vestidos formales con colores vivos y alegres.
+        </p>
+      </div>
+
+      <!-- Mesa de Regalos / Lluvia de Sobres -->
+      <div class="detail-card">
+        <div class="detail-icon">
+          <i class="fa-solid fa-gift"></i>
+        </div>
+        <h4>Lluvia de Sobres</h4>
+        <p><strong>Tu presencia es el mayor regalo</strong></p>
+        <p style="margin-top: 4px; font-size: 0.8rem; color: #94a3b8;">
+          Si deseas tener una muestra de aprecio hacia Don Ezequiel, contaremos con un buzón para lluvia de sobres en la entrada.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==================== CIERRE / PIE DE PÁGINA ==================== -->
+    <footer class="invitation-footer">
+      <div class="gold-divider">
+        <div class="line"></div>
+        <i class="fa-solid fa-heart icon"></i>
+        <div class="line"></div>
+      </div>
+
+      <p class="footer-quote">¡Te esperamos para festejar en grande!</p>
+      <div class="footer-family">Familia Maturano</div>
+
+      <p class="footer-credits">
+        Celebrando 80 Años de Don Ezequiel Maturano • 19 de Diciembre
+      </p>
+    </footer>
+
+  </main>
+
+  <!-- Listón inferior estilo Sarape Mexicano -->
+  <div class="serape-stripe"></div>
+
+  <!-- Librería QRCode.js para generar el código QR dinámicamente -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <!-- Librería Canvas Confetti para efecto festivo -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <!-- Archivos de Configuración y Lógica -->
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+

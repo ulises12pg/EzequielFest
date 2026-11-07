@@ -1,0 +1,852 @@
+/* ==========================================================================
+   ESTILOS - INVITACIÓN 80 AÑOS EZEQUIEL MATURANO (TEMÁTICA MEXICANA ELEGANTE)
+   Inspirado en Talavera, Azul Real, Dorado Colonial y Flores Mexicanas
+   ========================================================================== */
+
+:root {
+  --color-blue-dark: #08162b;
+  --color-blue-royal: #0c2756;
+  --color-blue-talavera: #164282;
+  --color-blue-cobalt: #1c529e;
+  --color-gold: #d4af37;
+  --color-gold-light: #f7e089;
+  --color-gold-dark: #9e7d1d;
+  --color-cream: #fbf9f4;
+  --color-red-mex: #c1121f;
+  --color-sunflower: #fbbf24;
+  --color-orange-mex: #f97316;
+  --color-turquoise: #06b6d4;
+  
+  --shadow-gold: 0 10px 30px rgba(212, 175, 55, 0.25);
+  --shadow-card: 0 15px 35px rgba(0, 0, 0, 0.4);
+  
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-display: 'Cinzel Decorative', 'Cinzel', serif;
+  --font-script: 'Great Vibes', cursive;
+  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-blue-dark);
+  color: #f1f5f9;
+  line-height: 1.6;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(22, 66, 130, 0.5) 0%, transparent 60%),
+    radial-gradient(circle at 100% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 0% 80%, rgba(193, 18, 31, 0.1) 0%, transparent 40%);
+}
+
+/* Patrón de Talavera decorativo sutil de fondo */
+.talavera-bg-overlay {
+  position: fixed;
+  inset: 0;
+  opacity: 0.04;
+  pointer-events: none;
+  background-size: 80px 80px;
+  background-image: 
+    radial-gradient(circle, #fff 1.5px, transparent 1.5px),
+    radial-gradient(circle, var(--color-gold) 1px, transparent 1px);
+  background-position: 0 0, 40px 40px;
+  z-index: 0;
+}
+
+/* Listón Mexicano Estilo Sarape */
+.serape-stripe {
+  height: 9px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    #e11d48 0%, #e11d48 14.28%,
+    #06b6d4 14.28%, #06b6d4 28.56%,
+    #eab308 28.56%, #eab308 42.84%,
+    #10b981 42.84%, #10b981 57.12%,
+    #f97316 57.12%, #f97316 71.4%,
+    #8b5cf6 71.4%, #8b5cf6 85.68%,
+    #0284c7 85.68%, #0284c7 100%
+  );
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.serape-stripe.thin {
+  height: 5px;
+}
+
+/* Contenedor Principal (Mobile-First y centrado elegante) */
+.invitation-container {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 16px 60px 16px;
+}
+
+/* ==========================================================================
+   BOTONES FLOTANTES (Música & Confeti)
+   ========================================================================== */
+.floating-actions {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  display: flex;
+  gap: 10px;
+  z-index: 999;
+}
+
+.fab-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-gold);
+  background: rgba(12, 39, 86, 0.85);
+  backdrop-filter: blur(8px);
+  color: var(--color-gold-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 1.1rem;
+}
+
+.fab-btn:hover {
+  transform: scale(1.1) rotate(5deg);
+  background: var(--color-gold);
+  color: var(--color-blue-dark);
+  box-shadow: var(--shadow-gold);
+}
+
+.fab-btn.playing {
+  animation: pulse-gold 2s infinite;
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+  50% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+}
+
+/* ==========================================================================
+   SECCIÓN HERO / ENCABEZADO
+   ========================================================================== */
+.hero-card {
+  margin-top: 30px;
+  background: linear-gradient(180deg, rgba(14, 38, 79, 0.95) 0%, rgba(8, 22, 43, 0.98) 100%);
+  border: 2px solid var(--color-gold);
+  border-radius: 28px;
+  padding: 40px 24px 32px 24px;
+  text-align: center;
+  position: relative;
+  box-shadow: var(--shadow-card), 0 0 40px rgba(212, 175, 55, 0.15);
+  overflow: hidden;
+}
+
+/* Cenefas y esquineros de Talavera en las esquinas */
+.corner-ornament {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  pointer-events: none;
+  opacity: 0.85;
+}
+.corner-tl { top: 8px; left: 8px; }
+.corner-tr { top: 8px; right: 8px; transform: rotate(90deg); }
+.corner-bl { bottom: 8px; left: 8px; transform: rotate(-90deg); }
+.corner-br { bottom: 8px; right: 8px; transform: rotate(180deg); }
+
+.pre-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  border-radius: 30px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold-light);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Medallón 80 Años */
+.badge-80 {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 24px auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, #10326a 0%, #081730 100%);
+  border: 3px double var(--color-gold);
+  border-radius: 50%;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.35);
+}
+
+.badge-80::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px dashed rgba(212, 175, 55, 0.6);
+  animation: rotate-border 25s linear infinite;
+}
+
+@keyframes rotate-border {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.badge-number {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1;
+  background: linear-gradient(135deg, #fff 0%, #fae69e 50%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+}
+
+.badge-sub {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--color-gold-light);
+  font-weight: 600;
+}
+
+.hero-title-greeting {
+  font-family: var(--font-script);
+  font-size: 2.4rem;
+  color: var(--color-gold-light);
+  margin-bottom: 4px;
+}
+
+.hero-name {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.hero-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #cbd5e1;
+  max-width: 480px;
+  margin: 0 auto 24px auto;
+  line-height: 1.6;
+}
+
+/* Divisor Dorado Mexicano */
+.gold-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 22px auto;
+  max-width: 340px;
+}
+
+.gold-divider .line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+}
+
+.gold-divider .icon {
+  color: var(--color-gold);
+  font-size: 1.1rem;
+}
+
+.hero-date-highlight {
+  display: inline-block;
+  background: rgba(22, 66, 130, 0.45);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 16px;
+  padding: 12px 26px;
+  margin-top: 5px;
+}
+
+.hero-date-highlight .date-day {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.hero-date-highlight .date-sub {
+  font-size: 0.85rem;
+  color: var(--color-gold-light);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* ==========================================================================
+   FOTO DECORACIÓN / AMBIENTACIÓN
+   ========================================================================== */
+.photo-frame-wrapper {
+  margin: 28px 0;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 3px solid var(--color-gold);
+  box-shadow: var(--shadow-card);
+}
+
+.decor-image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.photo-frame-wrapper:hover .decor-image {
+  transform: scale(1.03);
+}
+
+.photo-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(0deg, rgba(8, 22, 43, 0.95) 0%, rgba(8, 22, 43, 0.7) 70%, transparent 100%);
+  padding: 20px 16px 14px 16px;
+  text-align: center;
+}
+
+.photo-caption p {
+  font-family: var(--font-script);
+  font-size: 1.5rem;
+  color: var(--color-gold-light);
+  line-height: 1.2;
+}
+
+.photo-caption span {
+  font-size: 0.78rem;
+  color: #cbd5e1;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* ==========================================================================
+   SECCIÓN CUENTA REGRESIVA
+   ========================================================================== */
+.countdown-section {
+  margin: 28px 0;
+  background: linear-gradient(135deg, rgba(14, 39, 86, 0.9), rgba(8, 22, 43, 0.95));
+  border: 1.5px solid rgba(212, 175, 55, 0.6);
+  border-radius: 24px;
+  padding: 28px 18px;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  position: relative;
+}
+
+.section-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-gold-light);
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: #ffffff;
+  margin-bottom: 22px;
+  letter-spacing: 1px;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.countdown-box {
+  background: rgba(6, 18, 38, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 16px;
+  padding: 14px 6px;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.countdown-box::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+}
+
+.countdown-number {
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #ffffff;
+  display: block;
+  text-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+}
+
+.countdown-text {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-gold-light);
+  margin-top: 6px;
+  display: block;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   UBICACIONES E ITINERARIO (MISA Y RECEPCIÓN)
+   ========================================================================== */
+.events-section {
+  margin: 32px 0;
+}
+
+.event-card {
+  background: linear-gradient(145deg, rgba(14, 38, 79, 0.95), rgba(8, 22, 43, 0.95));
+  border: 1.5px solid var(--color-gold);
+  border-radius: 24px;
+  padding: 30px 22px;
+  margin-bottom: 24px;
+  position: relative;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), var(--shadow-gold);
+}
+
+.event-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.event-icon-circle {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-blue-talavera) 0%, var(--color-blue-dark) 100%);
+  border: 2px solid var(--color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold-light);
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.event-title-group h3 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.event-time-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--color-gold-light);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.event-body {
+  padding-left: 74px;
+}
+
+@media (max-width: 520px) {
+  .event-body {
+    padding-left: 0;
+    margin-top: 14px;
+  }
+}
+
+.event-venue-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f8fafc;
+  margin-bottom: 4px;
+}
+
+.event-address {
+  font-size: 0.92rem;
+  color: #94a3b8;
+  margin-bottom: 18px;
+}
+
+.btn-action-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #e5c158 0%, #c59b27 100%);
+  color: #08162b;
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.5px;
+  padding: 11px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  transition: all 0.25s ease;
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+  background: linear-gradient(135deg, #f7e089 0%, #d4af37 100%);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--color-gold-light);
+  border: 1px solid var(--color-gold);
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 10px 18px;
+  border-radius: 30px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-outline:hover {
+  background: rgba(212, 175, 55, 0.15);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   ESPACIO PARA CÓDIGO QR / GOOGLE DRIVE (ÁLBUM DE RECUERDOS)
+   ========================================================================== */
+.drive-section {
+  margin: 32px 0;
+  background: linear-gradient(145deg, rgba(14, 38, 79, 0.95), rgba(8, 22, 43, 0.95));
+  border: 2px solid var(--color-gold);
+  border-radius: 26px;
+  padding: 34px 22px;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  position: relative;
+}
+
+.qr-card-container {
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 20px;
+  display: inline-block;
+  margin: 18px auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  border: 4px solid var(--color-gold);
+  position: relative;
+}
+
+.qr-card-container::before {
+  content: 'ESCANEAME';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-blue-royal);
+  color: var(--color-gold-light);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 2px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--color-gold);
+}
+
+#qrcode {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto;
+}
+
+#qrcode img, #qrcode canvas {
+  width: 180px !important;
+  height: 180px !important;
+  border-radius: 8px;
+}
+
+.drive-hint {
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  max-width: 440px;
+  margin: 0 auto 20px auto;
+}
+
+/* ==========================================================================
+   CONFIRMACIÓN POR WHATSAPP (RSVP)
+   ========================================================================== */
+.rsvp-section {
+  margin: 32px 0;
+  background: linear-gradient(145deg, rgba(12, 34, 70, 0.95), rgba(6, 17, 34, 0.98));
+  border: 2px solid #25d366;
+  border-radius: 26px;
+  padding: 34px 22px;
+  box-shadow: var(--shadow-card), 0 0 35px rgba(37, 211, 102, 0.12);
+  text-align: center;
+  position: relative;
+}
+
+.rsvp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(37, 211, 102, 0.15);
+  border: 1px solid #25d366;
+  color: #4ade80;
+  padding: 5px 16px;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.rsvp-form {
+  max-width: 460px;
+  margin: 20px auto 0 auto;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--color-gold-light);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.form-control {
+  width: 100%;
+  background: rgba(6, 18, 38, 0.9);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 12px;
+  padding: 12px 14px;
+  color: #fff;
+  font-size: 0.95rem;
+  font-family: var(--font-sans);
+  outline: none;
+  transition: border-color 0.25s;
+}
+
+.form-control:focus {
+  border-color: #25d366;
+  box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.2);
+}
+
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d4af37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+}
+
+.btn-whatsapp {
+  width: 100%;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: #ffffff;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 30px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+  transition: all 0.25s ease;
+  margin-top: 10px;
+}
+
+.btn-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(37, 211, 102, 0.55);
+}
+
+/* ==========================================================================
+   DETALLES ADICIONALES (CÓDIGO DE VESTIMENTA & REGALOS)
+   ========================================================================== */
+.extra-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin: 32px 0;
+}
+
+@media (max-width: 580px) {
+  .extra-details-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.detail-card {
+  background: linear-gradient(145deg, rgba(14, 38, 79, 0.9), rgba(8, 22, 43, 0.9));
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  border-radius: 20px;
+  padding: 24px 18px;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+}
+
+.detail-icon {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 12px auto;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--color-gold-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  border: 1px solid var(--color-gold);
+}
+
+.detail-card h4 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.detail-card p {
+  font-size: 0.86rem;
+  color: #cbd5e1;
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   PIE DE PÁGINA / BENDICIÓN FINAL
+   ========================================================================== */
+.invitation-footer {
+  text-align: center;
+  padding: 40px 16px 20px 16px;
+  position: relative;
+}
+
+.footer-quote {
+  font-family: var(--font-script);
+  font-size: 2.2rem;
+  color: var(--color-gold-light);
+  margin-bottom: 12px;
+}
+
+.footer-family {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.footer-credits {
+  margin-top: 24px;
+  font-size: 0.75rem;
+  color: #64748b;
+  letter-spacing: 1px;
+}
+
+/* Toast flotante de notificación */
+.toast-notice {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--color-blue-royal);
+  border: 1px solid var(--color-gold);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  z-index: 1000;
+  opacity: 0;
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+.toast-notice.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
