@@ -743,19 +743,20 @@ body {
 }
 
 /* ==========================================================================
-   DETALLES ADICIONALES (CÓDIGO DE VESTIMENTA & REGALOS)
+   DETALLES ADICIONALES (CÓDIGO DE VESTIMENTA)
    ========================================================================== */
-.extra-details-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
-  margin: 32px 0;
+.extra-details-container {
+  margin: 32px auto;
+  max-width: 520px;
 }
 
-@media (max-width: 580px) {
-  .extra-details-grid {
-    grid-template-columns: 1fr;
-  }
+.dress-code-card {
+  background: linear-gradient(145deg, rgba(14, 38, 79, 0.95), rgba(8, 22, 43, 0.95));
+  border: 1.5px solid var(--color-gold);
+  border-radius: 22px;
+  padding: 26px 20px;
+  text-align: center;
+  box-shadow: var(--shadow-card);
 }
 
 .detail-card {

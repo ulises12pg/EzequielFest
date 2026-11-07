@@ -206,7 +206,7 @@ function initConfetti() {
   }
 }
 
-// 6. AMBIENTACIÓN SONORA (Soporta archivo MP3 personalizado o sintetizador tradicional)
+// 6. AMBIENTACIÓN SONORA (Música Mexicana: Trompetas, Huapango y Marimba)
 let audioCtx = null;
 let isAudioPlaying = false;
 let audioTimer = null;
@@ -216,10 +216,20 @@ function initAudio() {
   const btnMusic = document.getElementById("btn-music");
   if (!btnMusic) return;
 
-  // Intentar cargar archivo de audio personalizado si existe
+  // Intentar cargar archivo de audio Huapango (WAV o MP3)
   try {
-    customAudio = new Audio('assets/musica.mp3');
+    // Probamos primero el audio generado o personalizado
+    customAudio = new Audio('assets/musica.wav');
     customAudio.loop = true;
+    customAudio.addEventListener('error', () => {
+      // Si falla .wav, intentamos .mp3
+      try {
+        customAudio = new Audio('assets/musica.mp3');
+        customAudio.loop = true;
+      } catch (err) {
+        customAudio = null;
+      }
+    });
   } catch (e) {
     customAudio = null;
   }
@@ -231,13 +241,13 @@ function initAudio() {
           isAudioPlaying = true;
           btnMusic.classList.add("playing");
           btnMusic.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
-          showToast("Música activada 🎺🎶");
+          showToast("¡Suenan las trompetas y la marimba! 🎺🇲🇽");
         }).catch(() => {
-          // Si no existe musica.mp3 o falla, usamos el sintetizador web audio tradicional
-          playSynthesizedAudio(btnMusic);
+          // Si el navegador bloquea o no encuentra el archivo, usamos síntesis nativa de trompetas
+          playMexicanTrumpetHuapango(btnMusic);
         });
       } else {
-        playSynthesizedAudio(btnMusic);
+        playMexicanTrumpetHuapango(btnMusic);
       }
     } else {
       if (customAudio && !customAudio.paused) {
@@ -252,67 +262,110 @@ function initAudio() {
   });
 }
 
-function playSynthesizedAudio(btnMusic) {
+function playMexicanTrumpetHuapango(btnMusic) {
   if (!audioCtx) {
     audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   }
-  startAmbientMelody();
+  startHuapangoSynthesis();
   isAudioPlaying = true;
   btnMusic.classList.add("playing");
   btnMusic.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
-  showToast("Música tradicional activada 🎺🎶");
+  showToast("¡Trompetas y marimba tradicional! 🎺🇲🇽");
 }
 
-// Melodía festiva suave sintetizada estilo guitarra / campanadas tradicionales
-const chordNotes = [
-  // Arpegio festivo en Re Mayor / Sol Mayor tradicional
-  [293.66, 369.99, 440.00, 587.33], // D - F# - A - D
-  [392.00, 493.88, 587.33, 783.99], // G - B - D - G
-  [329.63, 415.30, 493.88, 659.25], // E - G# - B - E
-  [440.00, 554.37, 659.25, 880.00]  // A - C# - E - A
-];
-
-let chordIndex = 0;
-let noteIndex = 0;
-
-function playAcousticNote(freq, time) {
-  if (!audioCtx || audioCtx.state === 'suspended') {
-    if (audioCtx) audioCtx.resume();
+// Síntesis de Trompeta de Mariachi con filtro pasa-bajos resonante
+function playBrassTrumpet(freq, time, duration, isHarmony = false) {
+  if (!audioCtx || freq <= 0) return;
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume();
   }
+
+  const osc = audioCtx.createOscillator();
+  const filter = audioCtx.createBiquadFilter();
+  const gain = audioCtx.createGain();
+
+  osc.type = "sawtooth";
+  osc.frequency.setValueAtTime(freq, time);
+
+  // Filtro característico de trompeta brillante
+  filter.type = "lowpass";
+  filter.Q.setValueAtTime(3.2, time);
+  filter.frequency.setValueAtTime(800, time);
+  filter.frequency.exponentialRampToValueAtTime(3600, time + 0.03);
+  filter.frequency.exponentialRampToValueAtTime(2400, time + duration);
+
+  // Envolvente de volumen tipo latón / metal
+  const vol = isHarmony ? 0.09 : 0.12;
+  gain.gain.setValueAtTime(0.001, time);
+  gain.gain.linearRampToValueAtTime(vol, time + 0.02);
+  gain.gain.setValueAtTime(vol * 0.9, time + duration - 0.04);
+  gain.gain.exponentialRampToValueAtTime(0.0001, time + duration);
+
+  osc.connect(filter);
+  filter.connect(gain);
+  gain.connect(audioCtx.destination);
+
+  osc.start(time);
+  osc.stop(time + duration);
+}
+
+// Síntesis de Marimba / Clave con ataque de madera
+function playMarimbaNote(freq, time, duration = 0.25) {
+  if (!audioCtx || freq <= 0) return;
   const osc = audioCtx.createOscillator();
   const gain = audioCtx.createGain();
 
-  osc.type = "triangle";
+  osc.type = "sine";
   osc.frequency.setValueAtTime(freq, time);
 
-  // Envolvente tipo cuerda acústica / guitarra
-  gain.gain.setValueAtTime(0.001, time);
-  gain.gain.exponentialRampToValueAtTime(0.18, time + 0.04);
-  gain.gain.exponentialRampToValueAtTime(0.0001, time + 1.2);
+  gain.gain.setValueAtTime(0.18, time);
+  gain.gain.exponentialRampToValueAtTime(0.001, time + duration);
 
   osc.connect(gain);
   gain.connect(audioCtx.destination);
 
   osc.start(time);
-  osc.stop(time + 1.2);
+  osc.stop(time + duration);
 }
 
-function startAmbientMelody() {
+// Melodía festiva Huapango en Sol Mayor (Dúo de trompetas en terceras)
+const huapangoTheme = [
+  // Trompeta 1 (Lead), Trompeta 2 (Armonía), Duración (segundos)
+  { t1: 392.00, t2: 293.66, dur: 0.15 }, // G4 / D4
+  { t1: 493.88, t2: 392.00, dur: 0.15 }, // B4 / G4
+  { t1: 587.33, t2: 493.88, dur: 0.15 }, // D5 / B4
+  { t1: 783.99, t2: 587.33, dur: 0.35 }, // G5 / D5 (Fanfarria)
+  { t1: 739.99, t2: 554.37, dur: 0.15 }, // F#5 / C#5
+  { t1: 783.99, t2: 587.33, dur: 0.15 }, // G5 / D5
+  { t1: 880.00, t2: 659.25, dur: 0.38 }, // A5 / E5 (Acento)
+  { t1: 739.99, t2: 554.37, dur: 0.15 }, // F#5
+  { t1: 587.33, t2: 440.00, dur: 0.15 }, // D5
+  { t1: 659.25, t2: 493.88, dur: 0.15 }, // E5
+  { t1: 739.99, t2: 554.37, dur: 0.15 }, // F#5
+  { t1: 783.99, t2: 493.88, dur: 0.50 }  // G5 / B4 (Resolución)
+];
+
+let huapangoStep = 0;
+
+function startHuapangoSynthesis() {
   if (audioTimer) clearInterval(audioTimer);
-  
+
+  huapangoStep = 0;
   audioTimer = setInterval(() => {
     if (!isAudioPlaying || !audioCtx) return;
-    const currentChord = chordNotes[chordIndex];
-    const freq = currentChord[noteIndex];
-    
-    playAcousticNote(freq, audioCtx.currentTime);
+    const now = audioCtx.currentTime;
+    const item = huapangoTheme[huapangoStep];
 
-    noteIndex++;
-    if (noteIndex >= currentChord.length) {
-      noteIndex = 0;
-      chordIndex = (chordIndex + 1) % chordNotes.length;
-    }
-  }, 400);
+    // Tocar dúo de trompetas mariachi
+    playBrassTrumpet(item.t1, now, item.dur, false);
+    playBrassTrumpet(item.t2, now, item.dur, true);
+
+    // Acompañamiento de marimba en contratiempo huapango
+    playMarimbaNote(196.00, now, 0.2); // Bajo de marimba (G3)
+    playMarimbaNote(392.00, now + 0.08, 0.15); // Repique de marimba
+
+    huapangoStep = (huapangoStep + 1) % huapangoTheme.length;
+  }, 220);
 }
 
 function stopAmbientMelody() {
