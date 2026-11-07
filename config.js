@@ -32,8 +32,8 @@ const EVENT_CONFIG = {
 
   // Confirmación por WhatsApp (RSVP)
   whatsapp: {
-    // ⬇️ PEGA AQUÍ EL NÚMERO DE WHATSAPP (con código de país, ej: 521234567890 para México):
-    telefono: "521234567890", 
+    // ⬇️ NÚMERO DE WHATSAPP PARA CONFIRMACIONES:
+    telefono: "525535793557", 
     mensajeDefault: "¡Hola! Quiero confirmar mi asistencia para el festejo de 80 años de Don Ezequiel Maturano."
   },
 

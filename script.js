@@ -241,13 +241,13 @@ function initAudio() {
           isAudioPlaying = true;
           btnMusic.classList.add("playing");
           btnMusic.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
-          showToast("¡Suenan las trompetas y la marimba! 🎺🇲🇽");
+          showToast("¡Música alegre de fiesta mexicana! 🎶✨");
         }).catch(() => {
-          // Si el navegador bloquea o no encuentra el archivo, usamos síntesis nativa de trompetas
-          playMexicanTrumpetHuapango(btnMusic);
+          // Si el navegador bloquea o no encuentra el archivo, usamos síntesis nativa armoniosa
+          playHarmoniousCelebration(btnMusic);
         });
       } else {
-        playMexicanTrumpetHuapango(btnMusic);
+        playHarmoniousCelebration(btnMusic);
       }
     } else {
       if (customAudio && !customAudio.paused) {
@@ -262,55 +262,43 @@ function initAudio() {
   });
 }
 
-function playMexicanTrumpetHuapango(btnMusic) {
+function playHarmoniousCelebration(btnMusic) {
   if (!audioCtx) {
     audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   }
-  startHuapangoSynthesis();
+  startHarmoniousSynthesis();
   isAudioPlaying = true;
   btnMusic.classList.add("playing");
   btnMusic.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
-  showToast("¡Trompetas y marimba tradicional! 🎺🇲🇽");
+  showToast("¡Música alegre y armoniosa! 🎶✨");
 }
 
-// Síntesis de Trompeta de Mariachi con filtro pasa-bajos resonante
-function playBrassTrumpet(freq, time, duration, isHarmony = false) {
+// Síntesis de guitarra acústica cálida
+function playAcousticPluck(freq, time, duration = 0.5) {
   if (!audioCtx || freq <= 0) return;
   if (audioCtx.state === 'suspended') {
     audioCtx.resume();
   }
 
   const osc = audioCtx.createOscillator();
-  const filter = audioCtx.createBiquadFilter();
   const gain = audioCtx.createGain();
 
-  osc.type = "sawtooth";
+  osc.type = "triangle";
   osc.frequency.setValueAtTime(freq, time);
 
-  // Filtro característico de trompeta brillante
-  filter.type = "lowpass";
-  filter.Q.setValueAtTime(3.2, time);
-  filter.frequency.setValueAtTime(800, time);
-  filter.frequency.exponentialRampToValueAtTime(3600, time + 0.03);
-  filter.frequency.exponentialRampToValueAtTime(2400, time + duration);
-
-  // Envolvente de volumen tipo latón / metal
-  const vol = isHarmony ? 0.09 : 0.12;
   gain.gain.setValueAtTime(0.001, time);
-  gain.gain.linearRampToValueAtTime(vol, time + 0.02);
-  gain.gain.setValueAtTime(vol * 0.9, time + duration - 0.04);
+  gain.gain.linearRampToValueAtTime(0.12, time + 0.015);
   gain.gain.exponentialRampToValueAtTime(0.0001, time + duration);
 
-  osc.connect(filter);
-  filter.connect(gain);
+  osc.connect(gain);
   gain.connect(audioCtx.destination);
 
   osc.start(time);
   osc.stop(time + duration);
 }
 
-// Síntesis de Marimba / Clave con ataque de madera
-function playMarimbaNote(freq, time, duration = 0.25) {
+// Síntesis de Marimba dulce y brillante
+function playMarimbaNote(freq, time, duration = 0.35) {
   if (!audioCtx || freq <= 0) return;
   const osc = audioCtx.createOscillator();
   const gain = audioCtx.createGain();
@@ -318,7 +306,7 @@ function playMarimbaNote(freq, time, duration = 0.25) {
   osc.type = "sine";
   osc.frequency.setValueAtTime(freq, time);
 
-  gain.gain.setValueAtTime(0.18, time);
+  gain.gain.setValueAtTime(0.14, time);
   gain.gain.exponentialRampToValueAtTime(0.001, time + duration);
 
   osc.connect(gain);
@@ -328,44 +316,44 @@ function playMarimbaNote(freq, time, duration = 0.25) {
   osc.stop(time + duration);
 }
 
-// Melodía festiva Huapango en Sol Mayor (Dúo de trompetas en terceras)
-const huapangoTheme = [
-  // Trompeta 1 (Lead), Trompeta 2 (Armonía), Duración (segundos)
-  { t1: 392.00, t2: 293.66, dur: 0.15 }, // G4 / D4
-  { t1: 493.88, t2: 392.00, dur: 0.15 }, // B4 / G4
-  { t1: 587.33, t2: 493.88, dur: 0.15 }, // D5 / B4
-  { t1: 783.99, t2: 587.33, dur: 0.35 }, // G5 / D5 (Fanfarria)
-  { t1: 739.99, t2: 554.37, dur: 0.15 }, // F#5 / C#5
-  { t1: 783.99, t2: 587.33, dur: 0.15 }, // G5 / D5
-  { t1: 880.00, t2: 659.25, dur: 0.38 }, // A5 / E5 (Acento)
-  { t1: 739.99, t2: 554.37, dur: 0.15 }, // F#5
-  { t1: 587.33, t2: 440.00, dur: 0.15 }, // D5
-  { t1: 659.25, t2: 493.88, dur: 0.15 }, // E5
-  { t1: 739.99, t2: 554.37, dur: 0.15 }, // F#5
-  { t1: 783.99, t2: 493.88, dur: 0.50 }  // G5 / B4 (Resolución)
+// Progresión armónica alegre y emotiva en Sol Mayor: G -> D -> Em -> C
+const sweetChords = [
+  { bass: 196.00, notes: [392.00, 493.88, 587.33, 783.99] }, // G
+  { bass: 146.83, notes: [369.99, 440.00, 587.33, 739.99] }, // D
+  { bass: 164.81, notes: [329.63, 392.00, 493.88, 659.25] }, // Em
+  { bass: 130.81, notes: [261.63, 329.63, 392.00, 523.25] }  // C
 ];
 
-let huapangoStep = 0;
+let sweetChordIdx = 0;
+let sweetNoteIdx = 0;
 
-function startHuapangoSynthesis() {
+function startHarmoniousSynthesis() {
   if (audioTimer) clearInterval(audioTimer);
 
-  huapangoStep = 0;
+  sweetChordIdx = 0;
+  sweetNoteIdx = 0;
+
   audioTimer = setInterval(() => {
     if (!isAudioPlaying || !audioCtx) return;
     const now = audioCtx.currentTime;
-    const item = huapangoTheme[huapangoStep];
+    const current = sweetChords[sweetChordIdx];
 
-    // Tocar dúo de trompetas mariachi
-    playBrassTrumpet(item.t1, now, item.dur, false);
-    playBrassTrumpet(item.t2, now, item.dur, true);
+    if (sweetNoteIdx === 0) {
+      // Tocar bajo cálido en el primer tiempo
+      playAcousticPluck(current.bass, now, 0.8);
+    }
 
-    // Acompañamiento de marimba en contratiempo huapango
-    playMarimbaNote(196.00, now, 0.2); // Bajo de marimba (G3)
-    playMarimbaNote(392.00, now + 0.08, 0.15); // Repique de marimba
+    // Tocar nota de arpegio y marimba
+    const freq = current.notes[sweetNoteIdx];
+    playAcousticPluck(freq, now, 0.45);
+    playMarimbaNote(freq, now + 0.01, 0.3);
 
-    huapangoStep = (huapangoStep + 1) % huapangoTheme.length;
-  }, 220);
+    sweetNoteIdx++;
+    if (sweetNoteIdx >= current.notes.length) {
+      sweetNoteIdx = 0;
+      sweetChordIdx = (sweetChordIdx + 1) % sweetChords.length;
+    }
+  }, 230);
 }
 
 function stopAmbientMelody() {
