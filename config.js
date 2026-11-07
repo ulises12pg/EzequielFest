@@ -47,6 +47,12 @@ const EVENT_CONFIG = {
   codigoVestimenta: {
     tipo: "Formal Mexicano / Guayabera o Traje",
     descripcion: "Ven cómodo y elegante con un toque tradicional mexicano para celebrar juntos."
+  },
+
+  // Música de Fondo
+  musica: {
+    archivo: "assets/miviejo.mp3",
+    titulo: "Mi Viejo"
   }
 };
 

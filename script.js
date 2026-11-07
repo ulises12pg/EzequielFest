@@ -206,7 +206,7 @@ function initConfetti() {
   }
 }
 
-// 6. AMBIENTACIÓN SONORA (Música Mexicana: Trompetas, Huapango y Marimba)
+// 6. AMBIENTACIÓN SONORA (Reproduce "Mi Viejo" de fondo)
 let audioCtx = null;
 let isAudioPlaying = false;
 let audioTimer = null;
@@ -216,20 +216,14 @@ function initAudio() {
   const btnMusic = document.getElementById("btn-music");
   if (!btnMusic) return;
 
-  // Intentar cargar archivo de audio Huapango (WAV o MP3)
+  const audioSrc = (typeof EVENT_CONFIG !== "undefined" && EVENT_CONFIG.musica?.archivo) 
+    ? EVENT_CONFIG.musica.archivo 
+    : 'assets/miviejo.mp3';
+
   try {
-    // Probamos primero el audio generado o personalizado
-    customAudio = new Audio('assets/musica.wav');
+    customAudio = new Audio(audioSrc);
     customAudio.loop = true;
-    customAudio.addEventListener('error', () => {
-      // Si falla .wav, intentamos .mp3
-      try {
-        customAudio = new Audio('assets/musica.mp3');
-        customAudio.loop = true;
-      } catch (err) {
-        customAudio = null;
-      }
-    });
+    customAudio.preload = "auto";
   } catch (e) {
     customAudio = null;
   }
@@ -241,9 +235,11 @@ function initAudio() {
           isAudioPlaying = true;
           btnMusic.classList.add("playing");
           btnMusic.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
-          showToast("¡Música alegre de fiesta mexicana! 🎶✨");
-        }).catch(() => {
-          // Si el navegador bloquea o no encuentra el archivo, usamos síntesis nativa armoniosa
+          const titulo = EVENT_CONFIG.musica?.titulo || "Mi Viejo";
+          showToast(`Reproduciendo: ${titulo} 🎵❤️`);
+        }).catch((err) => {
+          console.warn("Audio autoplay policy or error:", err);
+          // Si el navegador bloquea la reproducción del archivo, activamos síntesis armoniosa
           playHarmoniousCelebration(btnMusic);
         });
       } else {
