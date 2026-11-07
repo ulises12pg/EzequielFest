@@ -44,8 +44,7 @@ recepcion: {
   googleMapsUrl: "https://maps.app.goo.gl/prCUdthFrGbAzz4W7?g_st=iw"
 },
 drive: {
-  // Pega aquí la URL de tu carpeta compartida:
-  carpetaUrl: "https://drive.google.com/drive/folders/tu-id-de-carpeta"
+  carpetaUrl: "https://drive.google.com/drive/folders/1c0tVeHpq2xm866JyrjjVYd10hCrkg4vD"
 },
 musica: {
   archivo: "assets/lameta.mp3",

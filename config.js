@@ -39,8 +39,8 @@ const EVENT_CONFIG = {
 
   // Carpeta de Google Drive para Fotos / Recuerdos
   drive: {
-    // ⬇️ PEGA AQUÍ EL ENLACE DE TU CARPETA DE GOOGLE DRIVE:
-    carpetaUrl: "https://drive.google.com"
+    // ⬇️ ENLACE DE TU CARPETA DE GOOGLE DRIVE:
+    carpetaUrl: "https://drive.google.com/drive/folders/1c0tVeHpq2xm866JyrjjVYd10hCrkg4vD"
   },
 
   // Código de Vestimenta
