@@ -1,59 +1,65 @@
 # 🎉 Invitación Dinámica - 80 Años de Ezequiel Maturano 🇲🇽
 
-Invitación web interactiva y responsiva inspirada en la temática mexicana elegante:
-- Colores **Azul Talavera / Azul Rey**, **Dorado Colonial** y vivos tonos florales.
-- Centro de mesa tradicional con el letrero *"Feliz Cumpleaños Ezequiel"*, trompo, rebozo y girasoles.
+Invitación web interactiva y responsiva inspirada en la temática tradicional mexicana:
+- Fondo neutro elegante que resalta **trompos**, **canicas de cristal** y **resorteras artesanales** flotantes.
+- Detalles coloridos inspirados en el centro de mesa artesanal con el letrero *"Feliz Cumpleaños Ezequiel"*, listón sarape mexicano, girasoles y rosas.
 - Diseñada con enfoque **mobile-first** para verse espectacular en teléfonos celulares al compartirse por WhatsApp.
 
 ---
 
 ## 🌟 Características Incluidas
 
-1. ⏳ **Cuenta Regresiva en Tiempo Real:** Días, horas, minutos y segundos exactos hasta el 19 de Diciembre a la 1:00 PM.
-2. ⛪ **Itinerario de Misa y Recepción:**
-   - **Misa de Acción de Gracias:** 1:00 PM con botón directo a Google Maps.
-   - **Recepción & Festejo:** 3:00 PM con botón directo a Google Maps.
+1. ⏳ **Cuenta Regresiva en Tiempo Real:** Días, horas, minutos y segundos exactos hasta el **19 de Diciembre a la 1:00 PM**.
+2. ⛪ **Itinerario y Ubicaciones en Google Maps:**
+   - **Misa de Acción de Gracias (1:00 PM):** Convento de las Hermanas Agustinas, Huerto Nantzha, Tula de Allende, Hgo.
+   - **Recepción & Festejo (3:00 PM):** Calle Galeana, San Andrés Tultepec, Tula de Allende, Hgo.
 3. 💬 **Confirmación de Asistencia (RSVP) por WhatsApp:**
-   - Formulario donde el invitado pone su nombre, número de personas y mensaje de felicitación.
-   - Abre automáticamente WhatsApp con el mensaje estructurado listo para enviar.
-4. 📱 **Espacio para Código QR (Álbum de Google Drive):**
-   - Genera automáticamente un código QR interactivo de la carpeta de Google Drive configurada.
-   - Incluye botón directo para abrir la carpeta desde el navegador.
-5. 🎺 **Música y Efectos Interactivos:**
-   - Botón de audio ambiental con melodía acústica festiva.
-   - Botón de confeti mexicano con los colores tradicionales del evento.
+   - Formulario directo hacia el número **5535793557**.
+   - Fecha límite de confirmación: **15 de Diciembre**.
+   - Incluye animación de confeti festivo mexicano 🎉.
+4. 🎵 **Música de Fondo:**
+   - Reproducción de **`lameta.mp3`** con botón flotante interactivo y aviso en pantalla.
+5. 📱 **Espacio para Código QR (Álbum de Google Drive):**
+   - Módulo interactivo con código QR dinámico listo para vincular la carpeta de Google Drive donde los invitados subirán sus fotos.
 6. 📅 **Botón para agendar en Google Calendar / Apple Calendar (.ics)**.
-7. 👔 **Código de vestimenta & Lluvia de sobres**.
+7. 👔 **Código de vestimenta:** *Formal Mexicano / Guayabera o Traje*.
 
 ---
 
-## ⚙️ Cómo Actualizar las Ubicaciones, WhatsApp y Drive
+## ⚙️ Archivo de Configuración Rápida
 
-Solo necesitas abrir el archivo [`config.js`](file:///c:/Users/ELITE%20DESK/Documents/GitHub/EzequielFest/config.js) y reemplazar los valores:
+Los datos del evento se gestionan en [`config.js`](file:///c:/Users/ELITE%20DESK/Documents/GitHub/EzequielFest/config.js):
 
 ```javascript
-// 1. WhatsApp del organizador (con código de país, ej. 52 para México + 10 dígitos)
-telefono: "521234567890",
-
-// 2. Enlace de Google Maps para la Misa
-googleMapsUrl: "https://maps.app.goo.gl/tu-enlace-misa",
-
-// 3. Enlace de Google Maps para la Recepción
-googleMapsUrl: "https://maps.app.goo.gl/tu-enlace-recepcion",
-
-// 4. Enlace de la Carpeta de Google Drive para las fotos
-carpetaUrl: "https://drive.google.com/drive/folders/tu-id-de-carpeta"
+// En config.js:
+whatsapp: {
+  telefono: "525535793557",
+},
+misa: {
+  hora: "1:00 PM",
+  googleMapsUrl: "https://maps.app.goo.gl/wixcihzfQL3ETNLC9?g_st=iw"
+},
+recepcion: {
+  hora: "3:00 PM",
+  googleMapsUrl: "https://maps.app.goo.gl/prCUdthFrGbAzz4W7?g_st=iw"
+},
+drive: {
+  // Pega aquí la URL de tu carpeta compartida:
+  carpetaUrl: "https://drive.google.com/drive/folders/tu-id-de-carpeta"
+},
+musica: {
+  archivo: "assets/lameta.mp3",
+  titulo: "La Meta"
+}
 ```
-
-El código QR del sitio se regenerará automáticamente en cuanto guardes tu enlace de Google Drive.
 
 ---
 
-## 🚀 Cómo Visualizar la Invitación
+## 🚀 Cómo Visualizar y Compartir la Invitación
 
-Puedes abrir el archivo [`index.html`](file:///c:/Users/ELITE%20DESK/Documents/GitHub/EzequielFest/index.html) directamente en tu navegador (doble clic en el archivo o clic derecho -> Abrir con Chrome/Edge).
+1. **En tu computadora (Local):**
+   - Puedes abrir directamente [`index.html`](file:///c:/Users/ELITE%20DESK/Documents/GitHub/EzequielFest/index.html) en tu navegador, o visitar [http://localhost:8000](http://localhost:8000) mientras el servidor esté activo.
 
-Para compartirla en línea por WhatsApp a todos los invitados:
-- Sube el repositorio a **GitHub Pages** (gratuito).
-- O arrastra la carpeta a **Vercel** o **Netlify Drop** (gratuito, te da un enlace tipo `ezequiel80.netlify.app` en 1 minuto).
-
+2. **Para compartirla por WhatsApp a los invitados:**
+   - **Opción 1 (GitHub Pages):** Sube el repositorio a GitHub y activa *Pages* en la configuración (gratis).
+   - **Opción 2 (Netlify Drop / Vercel):** Arrastra esta carpeta a [app.netlify.com/drop](https://app.netlify.com/drop) para obtener un enlace público instantáneo tipo `ezequiel80.netlify.app`.
