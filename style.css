@@ -455,6 +455,156 @@ body {
   z-index: 2;
 }
 
+/* ==========================================================================
+   ADORNOS ARTESANALES DEL HEADER (Trompo, Resortera y Canicas)
+   Enmarcan visualmente el encabezado sin tapar texto ni números
+   ========================================================================== */
+.hero-decor {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-decor-left {
+  top: 95px;
+  left: 20px;
+  animation: float-header-left 6s ease-in-out infinite;
+}
+
+.hero-decor-right {
+  top: 90px;
+  right: 20px;
+  animation: float-header-right 6.5s ease-in-out infinite;
+}
+
+.header-trompo {
+  width: 58px;
+  height: auto;
+  transform: rotate(-14deg);
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.6));
+}
+
+.header-resortera {
+  width: 54px;
+  height: auto;
+  transform: rotate(14deg);
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.6));
+}
+
+.header-canicas-row {
+  display: flex;
+  gap: 6px;
+  margin-top: -8px;
+  position: relative;
+  z-index: 2;
+}
+
+.header-canica {
+  width: 22px;
+  height: 22px;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
+}
+
+/* Canicas sutiles en las esquinas inferiores del hero */
+.hero-decor-bottom {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  bottom: 20px;
+}
+
+.hero-decor-bl {
+  left: 24px;
+  animation: float-header-left 7s ease-in-out infinite reverse;
+}
+
+.hero-decor-br {
+  right: 24px;
+  animation: float-header-right 7.5s ease-in-out infinite reverse;
+}
+
+.header-canica-small {
+  width: 20px;
+  height: 20px;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
+}
+
+@keyframes float-header-left {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-7px) rotate(-3deg); }
+}
+
+@keyframes float-header-right {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-7px) rotate(3deg); }
+}
+
+/* En pantallas medianas y móviles: se adaptan al marco sin tocar el centro */
+@media (max-width: 600px) {
+  .hero-decor-left {
+    left: 8px;
+    top: 90px;
+    opacity: 0.9;
+  }
+  .hero-decor-right {
+    right: 8px;
+    top: 85px;
+    opacity: 0.9;
+  }
+  .header-trompo {
+    width: 44px;
+  }
+  .header-resortera {
+    width: 42px;
+  }
+  .header-canica {
+    width: 17px;
+    height: 17px;
+  }
+  .header-canicas-row {
+    margin-top: -6px;
+    gap: 4px;
+  }
+  .hero-decor-bl {
+    left: 14px;
+    bottom: 14px;
+  }
+  .hero-decor-br {
+    right: 14px;
+    bottom: 14px;
+  }
+  .header-canica-small {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero-decor-left {
+    left: 4px;
+    top: 95px;
+    opacity: 0.75;
+  }
+  .hero-decor-right {
+    right: 4px;
+    top: 90px;
+    opacity: 0.75;
+  }
+  .header-trompo {
+    width: 38px;
+  }
+  .header-resortera {
+    width: 36px;
+  }
+  .header-canica {
+    width: 15px;
+    height: 15px;
+  }
+}
+
 /* Medallón 80 Años — MULTICOLOR */
 .badge-80 {
   width: 150px;
