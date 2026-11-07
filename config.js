@@ -24,10 +24,10 @@ const EVENT_CONFIG = {
   // Recepción / Fiesta
   recepcion: {
     hora: "3:00 PM",
-    lugar: "Salón / Hacienda de Eventos",
-    direccion: "Ubicación pendiente por confirmar",
-    // ⬇️ PEGA AQUÍ EL ENLACE DE GOOGLE MAPS DE LA RECEPCIÓN:
-    googleMapsUrl: "https://maps.google.com" 
+    lugar: "Salón / Jardín de Eventos",
+    direccion: "Calle Galeana, San Andrés Tultepec, 42814 Tula de Allende, Hgo.",
+    // ⬇️ ENLACE DE GOOGLE MAPS DE LA RECEPCIÓN:
+    googleMapsUrl: "https://maps.app.goo.gl/prCUdthFrGbAzz4W7?g_st=iw" 
   },
 
   // Confirmación por WhatsApp (RSVP)
