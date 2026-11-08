@@ -201,7 +201,7 @@ function initConfetti() {
   if (btnConfetti) {
     btnConfetti.addEventListener("click", () => {
       lanzarConfeti();
-      showToast("¡Viva la fiesta y viva Don Ezequiel! 🎉🇲🇽");
+      showToast("¡Viva la fiesta y viva Don Ezequiel! 🎉");
     });
   }
 }
