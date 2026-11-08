@@ -18,7 +18,7 @@ Invitación web interactiva y responsiva inspirada en la temática tradicional m
    - Fecha límite de confirmación: **15 de Diciembre**.
    - Incluye animación de confeti festivo mexicano 🎉.
 4. 🎵 **Música de Fondo:**
-   - Reproducción de **`lameta.mp3`** con botón flotante interactivo y aviso en pantalla.
+   - Reproducción de **`hoytqdp.mp3`** (*Hoy Te Quiero Decir Papá*) con botón flotante interactivo y aviso en pantalla.
 5. 📱 **Espacio para Código QR (Álbum de Google Drive):**
    - Módulo interactivo con código QR dinámico listo para vincular la carpeta de Google Drive donde los invitados subirán sus fotos.
 6. 📅 **Botón para agendar en Google Calendar / Apple Calendar (.ics)**.
@@ -47,8 +47,8 @@ drive: {
   carpetaUrl: "https://drive.google.com/drive/folders/1c0tVeHpq2xm866JyrjjVYd10hCrkg4vD"
 },
 musica: {
-  archivo: "assets/lameta.mp3",
-  titulo: "La Meta"
+  archivo: "assets/hoytqdp.mp3",
+  titulo: "Hoy Te Quiero Decir Papá"
 }
 ```
 

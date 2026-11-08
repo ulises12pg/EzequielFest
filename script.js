@@ -206,7 +206,7 @@ function initConfetti() {
   }
 }
 
-// 6. AMBIENTACIÓN SONORA (Reproduce "Mi Viejo" de fondo)
+// 6. AMBIENTACIÓN SONORA (Reproduce "Hoy Te Quiero Decir Papá" de fondo)
 let audioCtx = null;
 let isAudioPlaying = false;
 let audioTimer = null;
@@ -218,12 +218,21 @@ function initAudio() {
 
   const audioSrc = (typeof EVENT_CONFIG !== "undefined" && EVENT_CONFIG.musica?.archivo) 
     ? EVENT_CONFIG.musica.archivo 
-    : 'assets/miviejo.mp3';
+    : 'assets/hoytqdp.mp3';
 
   try {
     customAudio = new Audio(audioSrc);
     customAudio.loop = true;
     customAudio.preload = "auto";
+    // Fallback por si el archivo tuviera el nombre alternativo hoytqp.mp3
+    customAudio.addEventListener('error', () => {
+      try {
+        customAudio = new Audio('assets/hoytqp.mp3');
+        customAudio.loop = true;
+      } catch (err) {
+        console.warn("Error fallback audio:", err);
+      }
+    });
   } catch (e) {
     customAudio = null;
   }
@@ -235,7 +244,7 @@ function initAudio() {
           isAudioPlaying = true;
           btnMusic.classList.add("playing");
           btnMusic.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
-          const titulo = EVENT_CONFIG.musica?.titulo || "Mi Viejo";
+          const titulo = EVENT_CONFIG.musica?.titulo || "Hoy Te Quiero Decir Papá";
           showToast(`Reproduciendo: ${titulo} 🎵❤️`);
         }).catch((err) => {
           console.warn("Audio autoplay policy or error:", err);
