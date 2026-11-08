@@ -45,7 +45,7 @@ const EVENT_CONFIG = {
 
   // Código de Vestimenta
   codigoVestimenta: {
-    tipo: "Estilo Mexicano",
+    tipo: "Mexicana",
     descripcion: "Ven cómodo y elegante con un toque tradicional mexicano para celebrar juntos."
   },
 
