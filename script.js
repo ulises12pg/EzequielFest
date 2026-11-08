@@ -28,10 +28,10 @@ function initDynamicData() {
   // Misa
   const misaHora = document.querySelector(".dyn-misa-hora");
   if (misaHora) misaHora.textContent = EVENT_CONFIG.misa.hora;
-  
+
   const misaLugar = document.querySelector(".dyn-misa-lugar");
   if (misaLugar) misaLugar.textContent = EVENT_CONFIG.misa.lugar;
-  
+
   const misaDir = document.querySelector(".dyn-misa-dir");
   if (misaDir) misaDir.textContent = EVENT_CONFIG.misa.direccion;
 
@@ -43,10 +43,10 @@ function initDynamicData() {
   // Recepción
   const recepHora = document.querySelector(".dyn-recepcion-hora");
   if (recepHora) recepHora.textContent = EVENT_CONFIG.recepcion.hora;
-  
+
   const recepLugar = document.querySelector(".dyn-recepcion-lugar");
   if (recepLugar) recepLugar.textContent = EVENT_CONFIG.recepcion.lugar;
-  
+
   const recepDir = document.querySelector(".dyn-recepcion-dir");
   if (recepDir) recepDir.textContent = EVENT_CONFIG.recepcion.direccion;
 
@@ -58,7 +58,7 @@ function initDynamicData() {
   // Vestimenta
   const vestTipo = document.querySelector(".dyn-vestimenta-tipo");
   if (vestTipo) vestTipo.textContent = EVENT_CONFIG.codigoVestimenta.tipo;
-  
+
   const vestDesc = document.querySelector(".dyn-vestimenta-desc");
   if (vestDesc) vestDesc.textContent = EVENT_CONFIG.codigoVestimenta.descripcion;
 
@@ -216,8 +216,8 @@ function initAudio() {
   const btnMusic = document.getElementById("btn-music");
   if (!btnMusic) return;
 
-  const audioSrc = (typeof EVENT_CONFIG !== "undefined" && EVENT_CONFIG.musica?.archivo) 
-    ? EVENT_CONFIG.musica.archivo 
+  const audioSrc = (typeof EVENT_CONFIG !== "undefined" && EVENT_CONFIG.musica?.archivo)
+    ? EVENT_CONFIG.musica.archivo
     : 'assets/hoytqdp.mp3';
 
   try {
@@ -244,7 +244,7 @@ function initAudio() {
           isAudioPlaying = true;
           btnMusic.classList.add("playing");
           btnMusic.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
-          const titulo = EVENT_CONFIG.musica?.titulo || "Hoy Te Quiero Decir Papá";
+          const titulo = EVENT_CONFIG.musica?.titulo || "Hoy Tengo Que Decirte Papá";
           showToast(`Reproduciendo: ${titulo} 🎵❤️`);
         }).catch((err) => {
           console.warn("Audio autoplay policy or error:", err);
@@ -372,8 +372,8 @@ function stopAmbientMelody() {
 function downloadICS() {
   const title = `80 Años de ${EVENT_CONFIG.festejado}`;
   const desc = `Festejo de 80 Aniversario.\\nMisa: ${EVENT_CONFIG.misa.hora}\\nRecepción: ${EVENT_CONFIG.recepcion.hora}`;
-  const icsContent = 
-`BEGIN:VCALENDAR
+  const icsContent =
+    `BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//EzequielFest//Invitacion//ES
 BEGIN:VEVENT

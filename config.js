@@ -51,7 +51,7 @@ const EVENT_CONFIG = {
 
   // Música de Fondo
   musica: {
-    archivo: "assets/Hoy Tengo Que Decirte Papá.mp3",
+    archivo: "assets/hoytqdp.mp3",
     titulo: "Hoy Tengo Que Decirte Papá"
   }
 };
